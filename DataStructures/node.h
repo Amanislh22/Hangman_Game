@@ -6,7 +6,7 @@
 #define HANGMANGAME_NODE_H
 typedef struct node{
     char data;
-    node* left, *right;
+    struct node* left, *right;
 }node;
 void init_node (node *n );
 
