@@ -27,3 +27,30 @@ node* Insert(node* root, char item){
     }
     return root;
 }
+void Preorder(node* root){
+    //root left right
+    if ( root==NULL){
+        return;
+    }
+    printf("%c \t",root->data);
+    Preorder(root->left);
+    Preorder(root->right);
+}
+void Inorder(node* root){
+    //left root right
+    if (root==NULL){
+        return;
+    }
+    Inorder(root->left);
+    printf("%c \t",root->data);
+    Inorder(root->right);
+}
+void Postorder(node* root){
+    //left right root
+    if ( root==NULL){
+        return;
+    }
+    Postorder(root->left);
+    Postorder(root->right);
+    printf("%c \t",root->data);
+}
