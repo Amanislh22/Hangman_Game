@@ -63,3 +63,17 @@ void Postorder(node* root){
     Postorder(root->right);
     printf("%c \t",root->data);
 }
+
+node* Search(node *root , char value){
+    if ( root==NULL){
+        return NULL;
+    }
+    else if (root->data==value){
+        return root;}
+    else if (root->data<value){
+        return Search(root->right,value);}
+    else {
+        return Search(root->left, value);
+    }
+
+}
