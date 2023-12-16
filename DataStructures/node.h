@@ -8,6 +8,6 @@ typedef struct node{
     char data;
     struct node* left, *right;
 }node;
-void init_node (node *n );
+void init_node (node *n , char item);
 
 #endif //HANGMANGAME_NODE_H

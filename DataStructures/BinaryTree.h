@@ -11,4 +11,5 @@ typedef struct BinaryTree{
    node* root;
 }BinaryTree;
 void init_BinaryTree(BinaryTree *t);
+node* Insert(node* root, char item);
 #endif //HANGMANGAME_BINARYTREE_H

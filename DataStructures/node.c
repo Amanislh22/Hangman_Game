@@ -5,7 +5,7 @@
 #include "node.h"
 #include <stddef.h>
 
-void init_node (node *n){
-    n->data='\0';
+void init_node (node *n, char item){
+    n->data=item;
     n->left = n->right = NULL;
 }
