@@ -4,8 +4,11 @@
 
 #ifndef HANGMANGAME_BINARYTREE_H
 #define HANGMANGAME_BINARYTREE_H
+
+#include "node.h"
+
 typedef struct BinaryTree{
-    root=NULL;
+   node* root;
 }BinaryTree;
 void init_BinaryTree(BinaryTree *t);
 #endif //HANGMANGAME_BINARYTREE_H
