@@ -3,8 +3,9 @@
 //
 
 #include "node.h"
+#include <stddef.h>
 
 void init_node (node *n){
-    data='\0';
+    n->data='\0';
     n->left = n->right = NULL;
 }
