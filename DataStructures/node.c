@@ -5,6 +5,7 @@
 #include "node.h"
 #include <stddef.h>
 
+// Function to initialize a binary tree node
 void init_node (node *n, char item){
     n->data=item;
     n->left = n->right = NULL;

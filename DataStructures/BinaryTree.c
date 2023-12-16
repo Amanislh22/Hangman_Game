@@ -5,10 +5,13 @@
 #include "BinaryTree.h"
 #include <stdlib.h>
 #include <stdio.h>
+
+// Function to initialize a binary tree
 void init_BinaryTree(BinaryTree *t){
     t->root = NULL;
 }
 
+// Function to insert a new node into the binary tree
 node* Insert(node* root, char item){
     if(root==NULL){
         node *newnode = malloc(sizeof(node));
@@ -27,6 +30,8 @@ node* Insert(node* root, char item){
     }
     return root;
 }
+
+// Function to perform Preorder traversal of the binary tree
 void Preorder(node* root){
     //root left right
     if ( root==NULL){
@@ -36,6 +41,8 @@ void Preorder(node* root){
     Preorder(root->left);
     Preorder(root->right);
 }
+
+// Function to perform Inorder traversal of the binary tree
 void Inorder(node* root){
     //left root right
     if (root==NULL){
@@ -45,6 +52,8 @@ void Inorder(node* root){
     printf("%c \t",root->data);
     Inorder(root->right);
 }
+
+// Function to perform Postorder traversal of the binary tree
 void Postorder(node* root){
     //left right root
     if ( root==NULL){

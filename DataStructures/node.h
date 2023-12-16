@@ -4,6 +4,7 @@
 
 #ifndef HANGMANGAME_NODE_H
 #define HANGMANGAME_NODE_H
+// Define the structure for a binary tree node
 typedef struct node{
     char data;
     struct node* left, *right;
