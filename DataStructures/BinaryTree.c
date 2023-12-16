@@ -77,3 +77,11 @@ node* Search(node *root , char value){
     }
 
 }
+
+int sizeTree (node* root){
+    if (root==NULL){
+        return 0;
+    }else {
+        return (1+ length(root->left)+ length(root->right));
+    }
+}
