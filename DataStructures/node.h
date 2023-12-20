@@ -7,7 +7,10 @@
 // Define the structure for a binary tree node
 typedef struct node{
     char data;
-    struct node* left, *right;
+    struct node* left;
+    struct node* right;
+    struct node *parent; 
+
 }node;
 void init_node (node *n , char item);
 
