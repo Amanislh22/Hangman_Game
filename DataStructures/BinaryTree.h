@@ -17,5 +17,6 @@ node* Insert(node* root, char item);
 void Preorder(node* root);
 void Inorder(node* root);
 void Postorder(node* root);
-
+node* Search(node *root , char value);
+int sizeTree (node* root) ;
 #endif //HANGMANGAME_BINARYTREE_H

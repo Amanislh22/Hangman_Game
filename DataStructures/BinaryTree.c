@@ -63,3 +63,25 @@ void Postorder(node* root){
     Postorder(root->right);
     printf("%c \t",root->data);
 }
+
+node* Search(node *root , char value){
+    if ( root==NULL){
+        return NULL;
+    }
+    else if (root->data==value){
+        return root;}
+    else if (root->data<value){
+        return Search(root->right,value);}
+    else {
+        return Search(root->left, value);
+    }
+
+}
+
+int sizeTree (node* root){
+    if (root==NULL){
+        return 0;
+    }else {
+        return (1+ length(root->left)+ length(root->right));
+    }
+}
