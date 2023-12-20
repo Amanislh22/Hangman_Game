@@ -82,6 +82,6 @@ int sizeTree (node* root){
     if (root==NULL){
         return 0;
     }else {
-        return (1+ length(root->left)+ length(root->right));
+        return (1+ sizeTree(root->left)+ sizeTree(root->right));
     }
 }

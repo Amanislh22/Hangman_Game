@@ -27,7 +27,7 @@ int main(){
     }else
     {printf("\nitem found");}
     printf("\n**************************");
-    int l = length(myTRee.root);
+    int l = sizeTree(myTRee.root);
     printf("\n taille  = %d",l);
     printf("\n**************************");
 

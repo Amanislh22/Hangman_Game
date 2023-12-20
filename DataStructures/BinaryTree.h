@@ -2,8 +2,8 @@
 // Created by amani on 16/12/23.
 //
 
-#ifndef HANGMANGAME_BINARYTREE_H
-#define HANGMANGAME_BINARYTREE_H
+#ifndef HANGMAN_GAME_BINARYTREE_H
+#define HANGMAN_GAME_BINARYTREE_H
 
 #include "node.h"
 // Define the structure for the binary tree
@@ -19,4 +19,4 @@ void Inorder(node* root);
 void Postorder(node* root);
 node* Search(node *root , char value);
 int sizeTree (node* root) ;
-#endif //HANGMANGAME_BINARYTREE_H
+#endif //HANGMAN_GAME_BINARYTREE_H
