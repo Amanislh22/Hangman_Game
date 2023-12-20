@@ -2,9 +2,11 @@
 // Created by amani on 20/12/23.
 //
 #include "BinaryTree.h"
+#include "iostream"
+using namespace std;
 int main() {
     //45, 15, 79, 90, 10, 55, 12, 20, 50
-    BinaryTRee btree;
+    BinaryTree btree;
     btree.Insert(45);
     btree.Insert(15);
     btree.Insert(79);
