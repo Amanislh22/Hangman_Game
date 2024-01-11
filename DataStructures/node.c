@@ -8,5 +8,7 @@
 // Function to initialize a binary tree node
 void init_node (node *n, char item){
     n->data=item;
-    n->left = n->right = NULL;
+    n->left = NULL;
+	n->right = NULL; 
+	n->parent= NULL;
 }

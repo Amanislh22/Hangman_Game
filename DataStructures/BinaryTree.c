@@ -3,12 +3,57 @@
 //
 #include <stddef.h>
 #include "BinaryTree.h"
+#include "node.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 // Function to initialize a binary tree
+node *push_right(node *root, char item)
+{
+    if (root == NULL)
+    {
+        node *newnode = (node *)malloc(sizeof(node));
+        if (newnode == NULL)
+        {
+            // Handle memory allocation failure
+            printf("Memory allocation failed. Unable to insert new node.\n");
+            return root;
+        }
+        init_node(newnode, item);
+        root = newnode;
+
+    }
+    else
+    {
+        root->right= push_right(root->right, item);
+        root->right->parent = root; 
+    }
+    return root;
+}
+node* push_left(node* root, char item)
+{
+	if(root==NULL)
+	{
+        node *newnode =(node*) malloc(sizeof(node));
+		if (newnode == NULL)
+		{
+			// Handle memory allocation failure
+			printf("Memory allocation failed. Unable to insert new node.\n");
+			return root;
+		}
+     init_node(newnode,item);
+	 root=newnode;
+    }
+	else 
+    {
+        root->left =push_left(root->left,item);
+        root->left->parent =root;
+    }
+	return root;
+}
 void init_BinaryTree(BinaryTree *t){
     t->root = NULL;
+    t->parent = NULL;
 }
 
 // Function to insert a new node into the binary tree
@@ -23,7 +68,7 @@ node* Insert(node* root, char item){
         init_node(newnode,item);
         root=newnode;
     }
-    else if (item<root->data){
+    else if (NULL==root->left){
         root->left =Insert(root->left,item);
     }else{
         root->right= Insert(root->right,item);
@@ -82,6 +127,6 @@ int sizeTree (node* root){
     if (root==NULL){
         return 0;
     }else {
-        return (1+ length(root->left)+ length(root->right));
+        return (1+ sizeTree(root->left)+ sizeTree(root->right));
     }
 }

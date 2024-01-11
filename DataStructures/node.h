@@ -9,7 +9,7 @@ typedef struct node{
     char data;
     struct node* left;
     struct node* right;
-    struct node *parent; 
+    struct node *parent;
 
 }node;
 void init_node (node *n , char item);

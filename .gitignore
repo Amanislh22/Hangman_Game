@@ -2,3 +2,9 @@
 CMakeLists.txt
 cmake-build-debug/
 compile_commands.json
+.cache/*
+.ccls
+.ccls-cache/
+*.o
+main
+

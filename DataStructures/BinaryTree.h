@@ -9,9 +9,13 @@
 // Define the structure for the binary tree
 typedef struct BinaryTree{
    node* root;
+   node* parent; 
 }BinaryTree;
 
 // Function prototypes
+// node *push_word()
+node *push_right(node *root, char item);
+node* push_left(node* root, char item);
 void init_BinaryTree(BinaryTree *t);
 node* Insert(node* root, char item);
 void Preorder(node* root);
