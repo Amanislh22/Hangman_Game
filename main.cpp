@@ -3,6 +3,8 @@
 //
 #include "BinaryTree.h"
 #include "iostream"
+#include "File_manipulation/dic.h"
+
 using namespace std;
 int main() {
     //45, 15, 79, 90, 10, 55, 12, 20, 50
@@ -33,4 +35,8 @@ int main() {
         cout << "Item Found \n";
     else
         cout << "Sorry , item not found \n";
+     char* inputFilePath = "/home/amani/CLionProjects/Hangman_Game/File_manipulation/dic.txt";
+     char* outputFilePath = "/home/amani/CLionProjects/Hangman_Game/File_manipulation/result.txt";
+
+    sortFile(outputFilePath,inputFilePath);
 }
