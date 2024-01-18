@@ -4,7 +4,7 @@
 
 #include "Node.h"
 
-Node::Node(int data) : data(data){
+Node::Node(char data) : data(data){
 left=right=nullptr;
 }
 

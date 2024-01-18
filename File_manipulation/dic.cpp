@@ -4,6 +4,9 @@
 #include <cstdlib>
 #include "dic.h"
 #include <cstdio>
+#include <iostream>
+#include <fstream>
+#include <string>
 void sortFile(const char * output , const char* input ) {
 
     char command[256];
@@ -21,3 +24,17 @@ void sortFile(const char * output , const char* input ) {
 
 }
 
+
+void readFile(const char* file_path) {
+    std::ifstream file(file_path);
+
+    if (file.is_open()) {
+        std::string line;
+        while (getline(file, line)) {
+            std::cout << line << std::endl;
+        }
+        file.close();
+    } else {
+        std::cerr << "Unable to open file: " << file_path << std::endl;
+    }
+}

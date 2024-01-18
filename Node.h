@@ -10,12 +10,13 @@
 
 class Node {
 public:
-    int data;
+    char data;
     Node* left;
     Node* right;
+    Node* parent;
 
     // Constructor
-    Node(int data);
+    Node(char data);
 };
 
 #endif //HANGMAN_GAME_NODE_H
