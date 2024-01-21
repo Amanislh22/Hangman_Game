@@ -19,7 +19,7 @@ node *push_right(node *root, char item)
             printf("Memory allocation failed. Unable to insert new node.\n");
             return root;
         }
-        init_node(newnode, item);
+        init_node(newnode, item,true);
         root = newnode;
 
     }
@@ -41,7 +41,7 @@ node* push_left(node* root, char item)
 			printf("Memory allocation failed. Unable to insert new node.\n");
 			return root;
 		}
-     init_node(newnode,item);
+     init_node(newnode,item,false);
 	 root=newnode;
     }
 	else 
@@ -65,7 +65,7 @@ node* Insert(node* root, char item){
             printf("Memory allocation failed. Unable to insert new node.\n");
             return root;
         }
-        init_node(newnode,item);
+        init_node(newnode,item,false);
         root=newnode;
     }
     else if (NULL==root->left){

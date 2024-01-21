@@ -6,9 +6,10 @@
 #include <stddef.h>
 
 // Function to initialize a binary tree node
-void init_node (node *n, char item){
+void init_node (node *n, char item,bool id){
     n->data=item;
     n->left = NULL;
 	n->right = NULL; 
 	n->parent= NULL;
+	n->id =id; 
 }
