@@ -47,6 +47,13 @@ int main() {
 
     //test 5edmet mokhtar
     char *arr[3] = { "ces", "ce", "don" };
+    char *arr2[100] = {"ces", "ce", "don", "word1", "word2", "word3", "word4", "word5", "word6", "word7",
+                       "word8", "word9", "word10", "word11", "word12", "word13", "word14", "word15", "word16",
+                       "word17", "word18", "word19", "word20", "word21", "word22", "word23", "word24", "word25",
+                       "word26", "word27", "word28", "word29", "word30", "word31", "word32", "word33", "word34",
+                       "word35", "word36", "word37", "word38", "word39", "word40", "word41", "word42", "word43",
+                       "word44", "word45", "word46", "word47", "word48",  "word49" } ;
+
     char *s = "ci";
     char *s2 = "cas";
     //char *ptrs = s2;
@@ -55,8 +62,7 @@ int main() {
 
     int j = 0;
     BinaryTree tree;
-    //tree = new BinaryTree();
-    //init_BinaryTree(&tree);
+    /*
     tree.root= tree.insert_word(tree.root, s2, j);
     tree.root = tree.insert_word(tree.root, arr[1], j);
     tree.root = tree.insert_word(tree.root, arr[0], j);
@@ -64,8 +70,12 @@ int main() {
     tree.root = tree.insert_word(tree.root, "de", j);
     tree.root = tree.insert_word(tree.root, "des", j);
     tree.root = tree.insert_word(tree.root,arr[2] , j);
+*/
+    for ( int i=0;i<50;i++){
+        tree.root= tree.insert_word(tree.root, arr2[i], j);
+    }
 
     tree.Inorder(tree.root);
     printf("\n");
-    printf ("%c \n" , tree.root->data);
+    //printf ("%c \n" , tree.root->data);
 }
