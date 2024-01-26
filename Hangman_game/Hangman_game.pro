@@ -12,19 +12,25 @@ SOURCES += \
     key_board.cpp \
     main.cpp \
     mainwindow.cpp \
-    play_music.cpp
+    play_music.cpp \
+    single_player.cpp
 
 HEADERS += \
     key_board.h \
     mainwindow.h \
-    play_music.h
+    play_music.h \
+    single_player.h
 
 FORMS += \
     key_board.ui \
     mainwindow.ui \
-    play_music.ui
+    play_music.ui \
+    single_player.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc
