@@ -8,7 +8,7 @@ play_music::play_music(QWidget *parent) :
     player= new QMediaPlayer(this);
     audio = new QAudioOutput(this);
 //    audio->setDevice()
-    player->setSource(QUrl::fromLocalFile("/home/moktar/Hangman_Game/Hangman_game/music.mp3"));
+    player->setSource(QUrl::fromLocalFile("/home/amani/CLionProjects/Hangman_Game/Hangman_game/music.mp3"));
     player->setAudioOutput(audio);
 
     audio->setVolume(0.5);
