@@ -25,11 +25,13 @@ public:
     void Inorder(Node *r);
     void Postorder(Node *r);
 
-    /*
-    // Search function
-    Node *Search(Node *r, int key);
-    bool Search(int key);
-     */
+    Node* Search(Node *root , char value);
+    int sizeTree (Node* root) ;
+  
+    Node *Find_Word(Node *root, char *word, int size);
+    Node *get_sbtree_by_num(Node *root, int n);
+    int get_number_subtree(Node *root);
+    Node *get_subtree_by_char(Node *root, char c);
 };
 
 #endif //HANGMAN_GAME_BINARYTREE_H

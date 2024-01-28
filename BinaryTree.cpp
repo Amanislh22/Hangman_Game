@@ -87,22 +87,7 @@ Node *BinaryTree::insert_word(Node* root, char *w, int j)
 
     return root;
 }
-/*Node* BinaryTree::Insert(Node* r, char item) {
-    if (r == nullptr) {
-        Node* newNode = new Node(item);
-        r = newNode;
-    } else if (item < r->data) {
-        r->left = Insert(r->left, item);
-    } else {
-        r->right = Insert(r->right, item);
-    }
 
-    return r;
-}
-
-void BinaryTree::Insert(char item) {
-    root = Insert(root, item);
-}*/
 
 void BinaryTree::Preorder(Node* r) {
     if (r == nullptr)
@@ -145,3 +130,83 @@ bool BinaryTree::Search(int key) {
     Node* result = Search(root, key);
     return result != nullptr;
 }*/
+
+Node* BinaryTree::Search(Node *root , char value){
+    if ( root==NULL){
+        return NULL;
+    }
+    else if (root->data==value){
+        return root;}
+    else if (root->data<value){
+        return Search(root->right,value);}
+    else {
+        return Search(root->left, value);
+    }
+
+}
+int BinaryTree::sizeTree (Node* root){
+    if (root==NULL){
+        return 0;
+    }else {
+        return (1+ sizeTree(root->left)+ sizeTree(root->right));
+    }
+}
+
+Node *BinaryTree::Find_Word(Node *root, char *word, int size)
+{
+    Node *tmp = root;
+    if (root == NULL)
+        return NULL;
+    for (int i = 0; i < size; i++)
+    {
+        tmp = Search(tmp, word[i]);
+        if (tmp == NULL)
+        {
+            printf("word not found: %s \n", word);
+            return root;
+        }
+        printf("Found %c \n", tmp->data);
+
+        tmp = tmp->left;
+        if (tmp->data == '0' && i == size)
+        {
+            printf("word found: %s\n", word);
+            return root;
+        }
+    }
+    return root;
+}
+int BinaryTree::get_number_subtree(Node *root)
+{
+    Node *tmp = root;
+    int n = 0;
+    while (tmp != NULL)
+    {
+        n = n + 1;
+        printf("%c \n", tmp->data);
+        tmp = tmp->right;
+    }
+    if (tmp != NULL)
+        tmp->right = NULL;
+    return n;
+}
+Node *BinaryTree::get_subtree_by_char(Node *root, char c)
+{
+
+    Node *tmp = root;
+    while (tmp->data != c)
+    {
+        tmp = tmp->right;
+    }
+    return tmp;
+}
+Node *BinaryTree::get_sbtree_by_num(Node *root, int n)
+{
+    Node *tmp = root;
+    while (n != 0)
+    {
+        tmp = tmp->right;
+        n--;
+    }
+    return tmp;
+}
