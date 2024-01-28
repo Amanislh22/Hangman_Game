@@ -12,18 +12,24 @@ SOURCES += \
     key_board.cpp \
     main.cpp \
     mainwindow.cpp \
+    notification.cpp \
+    perdu.cpp \
     play_music.cpp \
     single_player.cpp
 
 HEADERS += \
     key_board.h \
     mainwindow.h \
+    notification.h \
+    perdu.h \
     play_music.h \
     single_player.h
 
 FORMS += \
     key_board.ui \
     mainwindow.ui \
+    notification.ui \
+    perdu.ui \
     play_music.ui \
     single_player.ui
 
@@ -34,3 +40,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    smile.jpg

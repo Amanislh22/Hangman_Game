@@ -5,6 +5,7 @@
 #include "play_music.h"
 #include <QStackedWidget>
 #include "key_board.h"
+#include"notification.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -30,9 +31,11 @@ private slots:
 
     void on_single_plyer_btn_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     play_music* music_wid;
     Key_board* keyboard_wid;
+    notification *notification;
 };
 #endif // MAINWINDOW_H
