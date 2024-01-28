@@ -68,4 +68,6 @@ int main() {
     tree.Inorder(tree.root);
     printf("\n");
     printf ("%c \n" , tree.root->data);
+    cout<< " ********************* test insert into file  *********************";
+    insert_into_file("jdyda", "result.txt");
 }

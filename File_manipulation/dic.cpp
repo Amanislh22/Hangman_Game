@@ -38,3 +38,21 @@ void readFile(const char* file_path) {
         std::cerr << "Unable to open file: " << file_path << std::endl;
     }
 }
+//insert a word in a file
+void insert_into_file(char * s ,const char* file_path ){
+    // Open the file in append mode
+    std::ofstream outFile(file_path, std::ios::app);
+
+    // Check if the file is successfully opened
+    if (!outFile.is_open()) {
+        std::cerr << "Error opening the file: " << file_path << std::endl;
+        return;
+    }
+
+    // Write the word to the file followed by a newline
+    outFile << s << std::endl;
+
+    // Close the file
+    outFile.close();
+}
+
