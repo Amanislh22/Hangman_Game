@@ -6,42 +6,6 @@ char *arr[tab_size] = {"cas","cassette", "ce", "ces","ci","de","des", "don","fas
 void get_word_from_user(int size,node* root,char* guessed_word  );
 
 
-int get_number_subtree(node* root ) 
-{	
-	node* tmp = root ; 
-	int n=0;
-	while (tmp != NULL)
-	{
-		n=n+1; 
-		printf ("%c \n", tmp->data);
-		tmp = tmp->right;
-
-	}
-	if (tmp != NULL)
-		tmp->right = NULL ; 
-    return  n ; 
-
-}
-node * get_subtree_by_char(node* root,char c )
-{
-
-	node* tmp = root; 
-	while (tmp->data !=c)
-	{
-		tmp= tmp->right; 
-	}
-	return tmp ; 
-}
-node * get_sbtree_by_num(node* root, int n) 
-{
-	node* tmp =root ; 
-    while (n!=0)
-	{
-		tmp = tmp->right;  
-		n--;
-	}
-	return tmp;
-}
 
 
 
@@ -72,68 +36,7 @@ for ( int i=0;i<len;i++)
 return j ;
 }
 
-node* Find_Word(node* root,char* word,int size)
-{
-	node* tmp = root; 
-if (root==NULL)
-	return NULL ; 
-for ( int i=0;i<size;i++)
-{
-	tmp = Search(tmp,word[i]);
-	if (tmp==NULL)
-	{
-		printf("word not found: %s \n",word);
-		return  root;
-	}
-	printf("Found %c \n",tmp->data);
 
-	tmp=tmp->left;
-		if (tmp->data == '0'&& i==size)
-    {
-		printf("word found: %s\n",word); 
-      return  root;   
-    }
-
-}
-    return root;
-
-}
-
-
-
-node *insert_word(node* root, char *w, int j)
-{
-
-
-  if (root == NULL) { // create a new node
-    for (int i = 0; i < strlen(w); i++) {
-      root = push_left(root, w[i]);
-    }
-	w="\0";
-    root = push_left(root, '0');
-  } 
-  else {
-    if (root->right == NULL) {
-      if (root->data == w[0]) {
-        //printf("diff \n");
-        w = w + 1;
-        root->left = insert_word(root->left, w, j);
-		//w = w + 1;
-		//root->left->right= insert_word(root->left->right, (w), j);
-	  } else {
-        root = push_right(root, w[0]);
-        //printf("d %c  \n", root->right->data);
-		w = w + 1;
-		root->right->left = insert_word(root->right->left, (w), j);
-
-      }
-         }else {
-      root->right = insert_word(root->right, w, j);
-    }
-  }
-
-  return root;
-}
 int main()
  {
 

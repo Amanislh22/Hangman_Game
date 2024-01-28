@@ -23,4 +23,9 @@ void Inorder(node* root);
 void Postorder(node* root);
 node* Search(node *root , char value);
 int sizeTree (node* root) ;
-#endif //HANGMANGAME_BINARYTREE_H
+node *insert_word(node *root, char *w, int j);
+node *Find_Word(node *root, char *word, int size);
+node *get_sbtree_by_num(node *root, int n);
+int get_number_subtree(node *root);
+node *get_subtree_by_char(node *root, char c);
+#endif // HANGMANGAME_BINARYTREE_H
