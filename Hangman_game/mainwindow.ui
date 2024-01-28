@@ -458,7 +458,7 @@
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="game_apge">
              <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -763,7 +763,7 @@
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="game_settings">
+                  <widget class="QPushButton" name="game_settings_page_btn">
                    <property name="minimumSize">
                     <size>
                      <width>108</width>
@@ -837,7 +837,21 @@
                 <layout class="QVBoxLayout" name="verticalLayout_9">
                  <item>
                   <widget class="QStackedWidget" name="stackedWidget_2">
-                   <widget class="QWidget" name="Game_settings"/>
+                   <widget class="QWidget" name="Game_settings">
+                    <widget class="QPushButton" name="pushButton">
+                     <property name="geometry">
+                      <rect>
+                       <x>280</x>
+                       <y>50</y>
+                       <width>89</width>
+                       <height>25</height>
+                      </rect>
+                     </property>
+                     <property name="text">
+                      <string>test buttom</string>
+                     </property>
+                    </widget>
+                   </widget>
                    <widget class="QWidget" name="Volume_settings">
                     <layout class="QHBoxLayout" name="horizontalLayout_6"/>
                    </widget>

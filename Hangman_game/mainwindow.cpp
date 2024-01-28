@@ -4,15 +4,22 @@
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <QHeaderView>
+#include "game_setting.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     music_wid = new play_music(this);
+
+    game_wid = new game_setting(this);
+
     keyboard_wid = new Key_board(this);
     ui->volume_label_main->setText(QString("Volume: %1").arg(music_wid->get_volume_level()));
+
     ui->stackedWidget_2->addWidget(music_wid);
+    ui->stackedWidget_2->addWidget(game_wid);
+
     ui->stackedWidget->setCurrentIndex(0);
 //    ui->wid
     ui->verticalLayout_14->addWidget(keyboard_wid);
@@ -100,4 +107,17 @@ ui->stackedWidget->setCurrentIndex(1);// set game single player mode page
 
 }
 
+
+
+/*void MainWindow::on_game_settings_page_btn_clicked()
+{
+    ui->stackedWidget_2->setCurrentWidget(game_wid);
+    ui->stackedWidget_2->show();
+}*/
+
+
+void MainWindow::on_game_settings_page_btn_clicked()
+{
+
+}
 
