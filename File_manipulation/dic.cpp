@@ -7,6 +7,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+
 void sortFile(const char * output , const char* input ) {
 
     char command[256];
@@ -38,21 +40,50 @@ void readFile(const char* file_path) {
         std::cerr << "Unable to open file: " << file_path << std::endl;
     }
 }
-//insert a word in a file
-void insert_into_file(char * s ,const char* file_path ){
-    // Open the file in append mode
-    std::ofstream outFile(file_path, std::ios::app);
+//insert a word in a file and then sort that file alph
+    void insertStringIntoFile(const char *filename, const std::string& content) {
+        std::ofstream outFile(filename, std::ios::app); // Open the file in append mode
 
-    // Check if the file is successfully opened
-    if (!outFile.is_open()) {
-        std::cerr << "Error opening the file: " << file_path << std::endl;
+        if (!outFile.is_open()) {
+            std::cerr << "Error opening the file: " << filename << std::endl;
+            return;
+        }
+
+        outFile << content; // Insert the string into the file
+
+        outFile.close(); // Close the file
+
+        //sort file
+    sortFile(filename, filename);
+    }
+void deleteWordFromFile(const char* filename, const std::string& wordToDelete) {
+    std::ifstream inFile(filename);
+    if (!inFile.is_open()) {
+        std::cerr << "Error opening the file: " << filename << std::endl;
         return;
     }
 
-    // Write the word to the file followed by a newline
-    outFile << s << std::endl;
+    std::stringstream buffer;
+    std::string line;
 
-    // Close the file
+    while (std::getline(inFile, line)) {
+        size_t pos = line.find(wordToDelete);
+        while (pos != std::string::npos) {
+            line.erase(pos, wordToDelete.length());
+            pos = line.find(wordToDelete, pos);
+        }
+        buffer << line << std::endl;
+    }
+
+    inFile.close();
+
+    std::ofstream outFile(filename);
+    if (!outFile.is_open()) {
+        std::cerr << "Error opening the file: " << filename << std::endl;
+        return;
+    }
+
+    outFile << buffer.str();
     outFile.close();
 }
 

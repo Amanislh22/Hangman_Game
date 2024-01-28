@@ -9,5 +9,6 @@
 
 void sortFile(const char* output , const char* input);
 void readFile(const char* output);
-void insert_into_file( char * s, const char * file_name);
+void insertStringIntoFile(const char *filename, const std::string& content);
+void deleteWordFromFile(const char* filename, const std::string& wordToDelete);
 #endif //HANGMAN_GAME_DIC_H

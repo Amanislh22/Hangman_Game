@@ -69,5 +69,6 @@ int main() {
     printf("\n");
     printf ("%c \n" , tree.root->data);
     cout<< " ********************* test insert into file  *********************";
-    insert_into_file("jdyda", "result.txt");
+    insertStringIntoFile("/home/amani/CLionProjects/Hangman_Game/File_manipulation/result.txt", "amoun");
+    deleteWordFromFile("/home/amani/CLionProjects/Hangman_Game/File_manipulation/result.txt","Dream");
 }
