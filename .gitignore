@@ -8,4 +8,7 @@ compile_commands.json
 .ccls-cache/
 *.o
 main
+Hangman_game/
+build-Hangman_game-Desktop_Qt_6_3_2_GCC_64bit-Debug/
+
 
