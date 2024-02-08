@@ -14,7 +14,11 @@ class Key_board : public QWidget
 public:
     explicit Key_board(QWidget *parent = nullptr);
     ~Key_board();
-
+public:
+    void enable_keyboard(bool);
+    void disable_key(QChar);
+signals:
+    void sendKeyboardInput(QString &message);
 private slots:
 
 

@@ -7,7 +7,6 @@ play_music::play_music(QWidget *parent) :
     ui->setupUi(this);
     player= new QMediaPlayer(this);
     audio = new QAudioOutput(this);
-//    audio->setDevice()
     player->setSource(QUrl::fromLocalFile("/home/moktar/Hangman_Game/Hangman_game/music.mp3"));
     player->setAudioOutput(audio);
 
@@ -17,8 +16,6 @@ play_music::play_music(QWidget *parent) :
     player->setLoops(QMediaPlayer::Infinite);
     player->play();
 
-//    connect(player,&QMediaPlayer::positionChanged,this,&play_music::on_posiotion_changed );
-//    connect(player,&QMediaPlayer::durationChanged,this,&play_music::on_duration_changed );
 
 }
 
@@ -30,7 +27,7 @@ play_music::~play_music()
 void play_music::on_Slider_Volume_sliderMoved(int position)
 {
 
-    qDebug()<<position;
+//    qDebug()<<position;
     float vol =(float ) position / 100 ;
     audio->setVolume(vol);
 

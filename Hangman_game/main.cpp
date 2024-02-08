@@ -1,19 +1,17 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include "api_request.h"
 
-#include "play_music.h"
-
-#include "key_board.h"
 #include <QtWidgets>
 
 int main(int argc, char *argv[]) {
 
     QApplication app(argc, argv);
     MainWindow window;
+    Api_request api ;
+    api.request_api("cassette",3);
 
-//    play_music play_audio ;
-//    play_audio.show();
     window.show();
 
     return app.exec();

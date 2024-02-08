@@ -2,7 +2,7 @@
 #define PERDU_H
 
 #include <QDialog>
-
+#include "state.h"
 namespace Ui {
 class perdu;
 }
@@ -15,6 +15,10 @@ public:
     explicit perdu(QWidget *parent = nullptr);
     ~perdu();
     void restart(void);
+    void Close();
+
+signals:
+    void send_action(int action);
 private:
     Ui::perdu *ui;
 };

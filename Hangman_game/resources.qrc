@@ -12,4 +12,12 @@
         <file>9.jpg</file>
         <file>10.jpg</file>
     </qresource>
+    <qresource prefix="/new/heart_emoji">
+        <file>heart_r.png</file>
+        <file>heart_cra_r.jpeg</file>
+        <file>heart_cra_r_2.jpeg</file>
+    </qresource>
+    <qresource prefix="/new/icons">
+        <file>idea_icon.png</file>
+    </qresource>
 </RCC>
