@@ -141,6 +141,7 @@ int BinaryTree::sizeTree (Node* root){
 Node *BinaryTree::Find_Word(Node *root, QString& word, int size)
 {
     Node *tmp = root;
+    qDebug()<<"find"<<word;
     if (root == NULL)
         return NULL;
     for (int i = 0; i < size; i++)
@@ -148,7 +149,7 @@ Node *BinaryTree::Find_Word(Node *root, QString& word, int size)
         tmp = Search(tmp, word[i]);
         if (tmp == NULL)
         {
-//            qDebug()<<"word not foun"<<  word;
+            qDebug()<<"word not foun"<<  word;
             return root;
         }
         qDebug()<<"Found "<< tmp->data;
@@ -156,7 +157,7 @@ Node *BinaryTree::Find_Word(Node *root, QString& word, int size)
         tmp = tmp->left;
         if (tmp->data == '0' && i == size)
         {
-//            qDebug()<<"word foun"<<  word;
+            qDebug()<<"word foun"<<  word;
             return root;
         }
     }

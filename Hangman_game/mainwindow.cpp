@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     // when sorting transform every word to lowercase,
     // creat a funtion that sets and restes fthe game every time
     // test function that prints the tree format
+    // delete data from tree
     // game settings ui
     ui->setupUi(this);
     music_wid = new play_music(this);
@@ -36,7 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
     show_image(set_img.set_hangman_image(-1));
     show_hearst(set_img.set_heart_emoji(true),-1);
 
-
+    dict.set_res_path(path_res) ;
+    dict.set_dic_path(path_dictionary) ;
 
     load_tree();
     set_word_to_guess(single_player_mode);
@@ -51,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    tree.Inorder(tree.root);
 */
     tree.Find_Word(tree.root,word_to_guess,word_to_guess.length());
-
+// tree.Inorder(tree.root);
     corret_answ=word_to_guess.length();
 
 }
@@ -328,7 +330,12 @@ corret_answ=word_to_guess.length();
 num_error_trials=9;
 itemVector.clear();
 set_num_trials_label(9);
+set_word_to_guess(single_player_mode);
+qDebug()<<word_to_guess;
+corret_answ=word_to_guess.length();
 create_table(word_to_guess.length());
+tree.Find_Word(tree.root,word_to_guess,word_to_guess.length());
+
 ui->hint_text->clear();
 ui->hint_text->setPlainText("Hint text");
 
@@ -367,8 +374,7 @@ set_score_label(score);
 }
 void MainWindow::set_word_to_guess(int mode )
 {
-dict.set_res_path(path_res) ;
-dict.set_dic_path(path_dictionary) ;
+
 dict.sortFile();
 word_to_guess= dict.get_word(0,false);
 }
@@ -376,8 +382,9 @@ void MainWindow::load_tree()
 {
 QStringList list;
 dict.readFile(list);
-for ( QString& w : list)
-    tree.insert_word(tree.root,w);
+qDebug()<<list;
+for ( int i=0; i<list.length();i++)
+    tree.root = tree.insert_word(tree.root,list[i]);
 }
 /*
 void MainWindow::file_stuff(){
