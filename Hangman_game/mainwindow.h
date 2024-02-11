@@ -14,6 +14,8 @@
 #include "won.h"
 #include "perdu.h"
 #include "api_request.h"
+#include "dic.h"
+
 //#include "File_manipulation/dic.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -60,6 +62,9 @@ public:
     void show_hearst(QPixmap* pic , int num );
     void reset_game();
     void calculate_penalty();
+    void file_stuff();
+    void set_word_to_guess(int mode);
+    void load_tree();
 //    void show_hearts()
 
 
@@ -71,6 +76,13 @@ private:
     Set_images set_img;
     Won* win_notif;
     Api_request api ;
+    Dictionary dict;
+    QString path_res="/home/moktar/Hangman_Game/Hangman_game/result.txt";
+    QString path_dictionary="/home/moktar/Hangman_Game/Hangman_game/dic.txt";
+
+
+
+
     int max_hint_words=3;
     perdu* lost_notif;
     BinaryTree tree;
@@ -79,8 +91,10 @@ private:
     int corret_answ=0;
     int score=0;
     int penalty=5;
+    QString dict_lang="fr";// "en"
     QVector<QString> arr = {"cas", "cassette", "ce", "ces", "ci", "de", "des", "don", "fas", "font", "kas"};
     QString word_to_guess="cassette";
+
     QVector<QTableWidgetItem*> itemVector;
 
 };

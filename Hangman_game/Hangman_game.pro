@@ -20,9 +20,11 @@ SOURCES += \
     play_music.cpp \
     set_images.cpp \
     single_player.cpp \
+    dic.cpp \
     won.cpp
 
 HEADERS += \
+    dic.h \
     BinaryTree.h \
     Node.h \
     api_request.h \

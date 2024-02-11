@@ -213,6 +213,17 @@ int BinaryTree::check_user_input(Node *root, QString guessed_word, QChar user_in
     }
     return j ;
 }
+
+void BinaryTree::Clear_tree(Node *root)
+{
+    while(root != NULL){
+        Clear_tree(root->right);
+        Clear_tree(root->left);
+        free(root) ;
+        root= NULL;
+    }
+
+}
 Node *BinaryTree::get_sbtree_by_num(Node *root, int n)
 {
     Node *tmp = root;

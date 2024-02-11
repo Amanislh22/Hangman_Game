@@ -13,7 +13,8 @@ class Api_request
 {
 public:
     Api_request();
-    QStringList request_api(QString str,int max_res);
+    QStringList request_api(QString str,int max_res,QString lang);
+private:
     bool parse_response(QByteArray response ,QStringList& words);
 };
 

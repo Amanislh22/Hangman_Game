@@ -20,4 +20,8 @@
     <qresource prefix="/new/icons">
         <file>idea_icon.png</file>
     </qresource>
+    <qresource prefix="/new/dictionary">
+        <file>dic.txt</file>
+        <file>result.txt</file>
+    </qresource>
 </RCC>

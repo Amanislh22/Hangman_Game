@@ -9,8 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    // when reset keyeboard input doesn't show up in table
-    // when enter in keyboard clear line edit
+    //toDO::
+    // create sort c++ qt
+    // when sorting transform every word to lowercase,
+    // creat a funtion that sets and restes fthe game every time
+    // test function that prints the tree format
+    // game settings ui
     ui->setupUi(this);
     music_wid = new play_music(this);
     keyboard_wid = new Key_board(this);
@@ -34,14 +38,18 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-
+    load_tree();
+    set_word_to_guess(single_player_mode);
+    qDebug()<<word_to_guess;
     create_table(word_to_guess.length());
+/*
     for (int i = 0; i<tab_size;i++)
     {
         tree.root = tree.insert_word(tree.root, arr[i]);
     }
 
 //    tree.Inorder(tree.root);
+*/
     tree.Find_Word(tree.root,word_to_guess,word_to_guess.length());
 
     corret_answ=word_to_guess.length();
@@ -329,7 +337,7 @@ ui->hint_text->setPlainText("Hint text");
 
 void MainWindow::on_hint_btn_clicked()
 {
-    QStringList words = api.request_api(word_to_guess, max_hint_words);
+    QStringList words = api.request_api(word_to_guess, max_hint_words,dict_lang);
     if (!words.isEmpty())
     {
         ui->hint_text->clear();
@@ -357,3 +365,38 @@ else {
 }
 set_score_label(score);
 }
+void MainWindow::set_word_to_guess(int mode )
+{
+dict.set_res_path(path_res) ;
+dict.set_dic_path(path_dictionary) ;
+dict.sortFile();
+word_to_guess= dict.get_word(0,false);
+}
+void MainWindow::load_tree()
+{
+QStringList list;
+dict.readFile(list);
+for ( QString& w : list)
+    tree.insert_word(tree.root,w);
+}
+/*
+void MainWindow::file_stuff(){
+QStringList list;
+list.append("hello moktar 2 ");
+
+//    dict.writeFile(,list);
+list.clear();
+
+dict.readFile(":/new/dictionary/result.txt",list);
+
+qDebug()<<list;
+
+//    dict.sortFile(":/new/dictionary/result.txt",":/new/dictionary/dic.txt");
+//    list.clear();
+
+//    dict.readFile(":/new/dictionary/result.txt",list);
+
+//    qDebug()<<list;
+//    list.clear();
+}
+*/

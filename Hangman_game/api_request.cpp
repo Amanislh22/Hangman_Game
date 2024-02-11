@@ -5,12 +5,12 @@ Api_request::Api_request()
 
 }
 
-QStringList Api_request::request_api(QString str,int max_res )
+QStringList Api_request::request_api(QString str,int max_res,QString lang )
 {
     QStringList words;
 
     QNetworkAccessManager manager;
-    QString url_str = QString ("http://api.datamuse.com/words?ml=%1&v=fr&d=1&max=%2").arg(str).arg(max_res);
+    QString url_str = QString ("http://api.datamuse.com/words?ml=%1&v=%2&d=1&max=%3").arg(str).arg(lang).arg(max_res);
     QUrl url =QUrl(url_str);
     // Create a network request for the API endpoint
     QNetworkRequest request(url);
