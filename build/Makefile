@@ -177,6 +177,30 @@ File_manipulation/dic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.s
 .PHONY : File_manipulation/dic.cpp.s
 
+Hangman.o: Hangman.cpp.o
+.PHONY : Hangman.o
+
+# target to build an object file
+Hangman.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/Hangman.cpp.o
+.PHONY : Hangman.cpp.o
+
+Hangman.i: Hangman.cpp.i
+.PHONY : Hangman.i
+
+# target to preprocess a source file
+Hangman.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/Hangman.cpp.i
+.PHONY : Hangman.cpp.i
+
+Hangman.s: Hangman.cpp.s
+.PHONY : Hangman.s
+
+# target to generate assembly for a file
+Hangman.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/Hangman.cpp.s
+.PHONY : Hangman.cpp.s
+
 Node.o: Node.cpp.o
 .PHONY : Node.o
 
@@ -201,30 +225,6 @@ Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/Node.cpp.s
 .PHONY : Node.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hangman_Game.dir/build.make CMakeFiles/Hangman_Game.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,12 +240,12 @@ help:
 	@echo "... File_manipulation/dic.o"
 	@echo "... File_manipulation/dic.i"
 	@echo "... File_manipulation/dic.s"
+	@echo "... Hangman.o"
+	@echo "... Hangman.i"
+	@echo "... Hangman.s"
 	@echo "... Node.o"
 	@echo "... Node.i"
 	@echo "... Node.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 .PHONY : help
 
 

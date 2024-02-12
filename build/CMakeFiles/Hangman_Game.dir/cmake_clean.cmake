@@ -3,10 +3,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o.d"
   "CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o"
   "CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o.d"
+  "CMakeFiles/Hangman_Game.dir/Hangman.cpp.o"
+  "CMakeFiles/Hangman_Game.dir/Hangman.cpp.o.d"
   "CMakeFiles/Hangman_Game.dir/Node.cpp.o"
   "CMakeFiles/Hangman_Game.dir/Node.cpp.o.d"
-  "CMakeFiles/Hangman_Game.dir/main.cpp.o"
-  "CMakeFiles/Hangman_Game.dir/main.cpp.o.d"
   "Hangman_Game"
   "Hangman_Game.pdb"
 )

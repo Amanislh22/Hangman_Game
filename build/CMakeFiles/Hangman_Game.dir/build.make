@@ -83,19 +83,19 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Hangman_Game.dir/Node.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/moktar/Hangman_Game/Node.cpp -o CMakeFiles/Hangman_Game.dir/Node.cpp.s
 
-CMakeFiles/Hangman_Game.dir/main.cpp.o: CMakeFiles/Hangman_Game.dir/flags.make
-CMakeFiles/Hangman_Game.dir/main.cpp.o: ../main.cpp
-CMakeFiles/Hangman_Game.dir/main.cpp.o: CMakeFiles/Hangman_Game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/moktar/Hangman_Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Hangman_Game.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Hangman_Game.dir/main.cpp.o -MF CMakeFiles/Hangman_Game.dir/main.cpp.o.d -o CMakeFiles/Hangman_Game.dir/main.cpp.o -c /home/moktar/Hangman_Game/main.cpp
+CMakeFiles/Hangman_Game.dir/Hangman.cpp.o: CMakeFiles/Hangman_Game.dir/flags.make
+CMakeFiles/Hangman_Game.dir/Hangman.cpp.o: ../Hangman.cpp
+CMakeFiles/Hangman_Game.dir/Hangman.cpp.o: CMakeFiles/Hangman_Game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/moktar/Hangman_Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Hangman_Game.dir/Hangman.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Hangman_Game.dir/Hangman.cpp.o -MF CMakeFiles/Hangman_Game.dir/Hangman.cpp.o.d -o CMakeFiles/Hangman_Game.dir/Hangman.cpp.o -c /home/moktar/Hangman_Game/Hangman.cpp
 
-CMakeFiles/Hangman_Game.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Hangman_Game.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/moktar/Hangman_Game/main.cpp > CMakeFiles/Hangman_Game.dir/main.cpp.i
+CMakeFiles/Hangman_Game.dir/Hangman.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Hangman_Game.dir/Hangman.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/moktar/Hangman_Game/Hangman.cpp > CMakeFiles/Hangman_Game.dir/Hangman.cpp.i
 
-CMakeFiles/Hangman_Game.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Hangman_Game.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/moktar/Hangman_Game/main.cpp -o CMakeFiles/Hangman_Game.dir/main.cpp.s
+CMakeFiles/Hangman_Game.dir/Hangman.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Hangman_Game.dir/Hangman.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/moktar/Hangman_Game/Hangman.cpp -o CMakeFiles/Hangman_Game.dir/Hangman.cpp.s
 
 CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o: CMakeFiles/Hangman_Game.dir/flags.make
 CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o: ../BinaryTree.cpp
@@ -128,7 +128,7 @@ CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.s: cmake_force
 # Object files for target Hangman_Game
 Hangman_Game_OBJECTS = \
 "CMakeFiles/Hangman_Game.dir/Node.cpp.o" \
-"CMakeFiles/Hangman_Game.dir/main.cpp.o" \
+"CMakeFiles/Hangman_Game.dir/Hangman.cpp.o" \
 "CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o" \
 "CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o"
 
@@ -136,7 +136,7 @@ Hangman_Game_OBJECTS = \
 Hangman_Game_EXTERNAL_OBJECTS =
 
 Hangman_Game: CMakeFiles/Hangman_Game.dir/Node.cpp.o
-Hangman_Game: CMakeFiles/Hangman_Game.dir/main.cpp.o
+Hangman_Game: CMakeFiles/Hangman_Game.dir/Hangman.cpp.o
 Hangman_Game: CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o
 Hangman_Game: CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o
 Hangman_Game: CMakeFiles/Hangman_Game.dir/build.make

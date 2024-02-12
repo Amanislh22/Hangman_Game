@@ -370,13 +370,8 @@ CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
  /usr/include/c++/11/bits/fstream.tcc
 
-CMakeFiles/Hangman_Game.dir/Node.cpp.o
- /home/moktar/Hangman_Game/Node.cpp
- /usr/include/stdc-predef.h
- /home/moktar/Hangman_Game/Node.h
-
-CMakeFiles/Hangman_Game.dir/main.cpp.o
- /home/moktar/Hangman_Game/main.cpp
+CMakeFiles/Hangman_Game.dir/Hangman.cpp.o
+ /home/moktar/Hangman_Game/Hangman.cpp
  /usr/include/stdc-predef.h
  /home/moktar/Hangman_Game/BinaryTree.h
  /home/moktar/Hangman_Game/Node.h
@@ -559,4 +554,9 @@ CMakeFiles/Hangman_Game.dir/main.cpp.o
  /usr/include/string.h
  /usr/include/strings.h
  /home/moktar/Hangman_Game/File_manipulation/dic.h
+
+CMakeFiles/Hangman_Game.dir/Node.cpp.o
+ /home/moktar/Hangman_Game/Node.cpp
+ /usr/include/stdc-predef.h
+ /home/moktar/Hangman_Game/Node.h
 

@@ -10,8 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/moktar/Hangman_Game/BinaryTree.cpp" "CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o" "gcc" "CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o.d"
   "/home/moktar/Hangman_Game/File_manipulation/dic.cpp" "CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o" "gcc" "CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o.d"
+  "/home/moktar/Hangman_Game/Hangman.cpp" "CMakeFiles/Hangman_Game.dir/Hangman.cpp.o" "gcc" "CMakeFiles/Hangman_Game.dir/Hangman.cpp.o.d"
   "/home/moktar/Hangman_Game/Node.cpp" "CMakeFiles/Hangman_Game.dir/Node.cpp.o" "gcc" "CMakeFiles/Hangman_Game.dir/Node.cpp.o.d"
-  "/home/moktar/Hangman_Game/main.cpp" "CMakeFiles/Hangman_Game.dir/main.cpp.o" "gcc" "CMakeFiles/Hangman_Game.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.

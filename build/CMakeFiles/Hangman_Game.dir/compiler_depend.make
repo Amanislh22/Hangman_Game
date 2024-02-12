@@ -368,11 +368,7 @@ CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o: ../File_manipulation/di
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc
 
-CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
-  /usr/include/stdc-predef.h \
-  ../Node.h
-
-CMakeFiles/Hangman_Game.dir/main.cpp.o: ../main.cpp \
+CMakeFiles/Hangman_Game.dir/Hangman.cpp.o: ../Hangman.cpp \
   /usr/include/stdc-predef.h \
   ../BinaryTree.h \
   ../Node.h \
@@ -556,8 +552,10 @@ CMakeFiles/Hangman_Game.dir/main.cpp.o: ../main.cpp \
   /usr/include/strings.h \
   ../File_manipulation/dic.h
 
+CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
+  /usr/include/stdc-predef.h \
+  ../Node.h
 
-../main.cpp:
 
 ../Node.cpp:
 
@@ -680,6 +678,8 @@ CMakeFiles/Hangman_Game.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+../Hangman.cpp:
 
 /usr/include/c++/11/bits/concept_check.h:
 
