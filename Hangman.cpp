@@ -38,11 +38,11 @@ return j ;
 }
 using namespace std;
 int main() {
-    const char* inputFilePath = "/home/moktar/Hangman_Game/File_manipulation/dic.txt";
-     const char* outputFilePath = "/home/moktar/Hangman_Game/File_manipulation/result.txt";
+    //const char* inputFilePath = "/home/moktar/Hangman_Game/File_manipulation/dic.txt";
+     //const char* outputFilePath = "/home/moktar/Hangman_Game/File_manipulation/result.txt";
 
-    sortFile(outputFilePath,inputFilePath);
-    readFile(outputFilePath);
+    //sortFile(outputFilePath,inputFilePath);
+    //readFile(outputFilePath);
 /* 
     //test 5edmet mokhtar
     char *arr[3] = { "ces", "ce", "don" };
@@ -68,15 +68,17 @@ int main() {
     printf ("%c \n" , tree.root->data);
     */
 	    BinaryTree tree;
-int j=0; 
-    	for (int i = 0; i<tab_size;i++)
+	int j=0; 
+    for (int i = 0; i<tab_size;i++)
 	{
     tree.root = tree.insert_word(tree.root, arr[i], j);
 	}  
+    tree.root =  tree.insert_word(tree.root, "aaa", 0);
     tree.Inorder(tree.root);
     printf("\n");
 	printf ("%c \n" , tree.root->data); 
-
+	
+/*
 	tree.root = tree.Find_Word(tree.root, arr[0], strlen(arr[0]));
 	printf("-------\n");
     
@@ -96,6 +98,7 @@ int j=0;
 	printf("%c \n",sub1->data);;
     get_word_from_user(strlen(arr[1]), sub,arr[1]);
 	printf("-------\n");
+	*/
 }
 
 void  set_up_word(char*  word_toguess, int len_str)
