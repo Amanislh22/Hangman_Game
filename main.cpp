@@ -4,10 +4,55 @@
 #include "BinaryTree.h"
 #include "iostream"
 #include "File_manipulation/dic.h"
-
+#include <iostream>
+#include <vector>
+#include "hangman_functions.h"
+using namespace std;
 using namespace std;
 int main() {
 
+    greet();
+
+    string codeword = "codingcleverly";
+    string answer = "______________";
+    int misses = 0;
+    vector<char> incorrect;
+    bool guess = false;
+    char letter;
+
+
+    while(answer!=codeword && misses < 7)
+    {
+        display_misses(misses);
+        display_status(incorrect, answer);
+
+        cout<<"\n\nPlease enter your guess: ";
+        cin>>letter;
+
+        for(int i = 0; i<codeword.length(); i++)
+        {
+            if(letter==codeword[i])
+            {
+                answer[i] = letter;
+                guess = true;
+            }
+        }
+        if(guess)
+        {
+            cout<<"\nCorrect!\n";
+        }
+        else
+        {
+            cout<<"\nIncorrect! Another portion of the person has been drawn.\n";
+            incorrect.push_back(letter);
+            misses++;
+        }
+        guess = false;
+    }
+
+    end_game(answer, codeword);
+    return 0;
+}
 
     /*
     //45, 15, 79, 90, 10, 55, 12, 20, 50
@@ -39,6 +84,9 @@ int main() {
     else
         cout << "Sorry , item not found \n";
         */
+
+
+    /*
      char* inputFilePath = "/home/amani/CLionProjects/Hangman_Game/File_manipulation/dic.txt";
      char* outputFilePath = "/home/amani/CLionProjects/Hangman_Game/File_manipulation/result.txt";
 
@@ -71,4 +119,4 @@ int main() {
     cout<< " ********************* test insert into file  *********************";
     insertStringIntoFile("/home/amani/CLionProjects/Hangman_Game/File_manipulation/result.txt", "amoun");
     deleteWordFromFile("/home/amani/CLionProjects/Hangman_Game/File_manipulation/result.txt","Dream");
-}
+     */

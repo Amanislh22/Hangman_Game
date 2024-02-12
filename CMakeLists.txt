@@ -11,4 +11,5 @@ add_executable(Hangman_Game
         main.cpp
         BinaryTree.h
         BinaryTree.cpp
-        File_manipulation/dic.cpp)
+        File_manipulation/dic.cpp
+        hangman_functions.cpp)
