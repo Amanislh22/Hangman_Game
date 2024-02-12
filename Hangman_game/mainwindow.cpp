@@ -55,6 +55,13 @@ MainWindow::MainWindow(QWidget *parent)
     tree.Find_Word(tree.root,word_to_guess,word_to_guess.length());
 // tree.Inorder(tree.root);
     corret_answ=word_to_guess.length();
+    tree.Clear_tree(tree.root);
+	QString s= "sound" ; 
+    tree.Find_Word(tree.root,s ,s.length());
+    tree = BinaryTree() ; 
+	load_tree(); 
+
+    tree.Find_Word(tree.root,s ,s.length());
 
 }
 
@@ -382,7 +389,6 @@ void MainWindow::load_tree()
 {
 QStringList list;
 dict.readFile(list);
-qDebug()<<list;
 for ( int i=0; i<list.length();i++)
     tree.root = tree.insert_word(tree.root,list[i]);
 }
