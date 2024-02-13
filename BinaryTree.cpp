@@ -63,7 +63,7 @@ Node *BinaryTree::insert_word(Node* root, char *w, int j)
             root = push_left(root, w[i]);
         }
         w="\0";
-        root = push_left(root, '0');
+        root = push_left(root, '\0');
     }
     else {
         if (root->right == nullptr) {
@@ -78,7 +78,7 @@ Node *BinaryTree::insert_word(Node* root, char *w, int j)
                 //printf("d %c  \n", root->right->data);
                 w = w + 1;
                 root->right->left = insert_word(root->right->left, (w), j);
-
+                root->right->left->parent= root->right; 
             }
         }else {
             root->right = insert_word(root->right, w, j);
@@ -168,7 +168,7 @@ Node *BinaryTree::Find_Word(Node *root, char *word, int size)
         printf("Found %c \n", tmp->data);
 
         tmp = tmp->left;
-        if (tmp->data == '0' && i == size)
+        if (tmp->data == '\0' && i == size)
         {
             printf("word found: %s\n", word);
             return root;
@@ -209,4 +209,19 @@ Node *BinaryTree::get_sbtree_by_num(Node *root, int n)
         n--;
     }
     return tmp;
+}
+
+bool BinaryTree::has_LeftNode(Node* root){
+    if(root->left!=NULL)
+        return true ;
+    else 
+        return false ;
+}
+//retourner le fils droit du noeud
+
+bool BinaryTree::has_RightNode(Node* root){
+    if(root->right!=NULL)
+        return true ; 
+    else 
+        return false ; 
 }

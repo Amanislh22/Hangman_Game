@@ -10,7 +10,8 @@ public:
 
     // Constructor
     BinaryTree();
-
+    bool has_RightNode(Node* root) ; 
+    bool has_LeftNode(Node* root); 
     // Function to insert a node
     /*Node *Insert(Node *r, int item);
     void Insert(int item);*/

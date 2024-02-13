@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/Hangman_Game.dir/Node.cpp.o CMakeFiles/Hangman_Game.dir/Hangman.cpp.o CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o -o Hangman_Game 
+/usr/bin/c++ -g CMakeFiles/Hangman_Game.dir/Node.cpp.o CMakeFiles/Hangman_Game.dir/Hangman.cpp.o CMakeFiles/Hangman_Game.dir/BinaryTree.cpp.o CMakeFiles/Hangman_Game.dir/File_manipulation/dic.cpp.o -o Hangman_Game 

@@ -4,11 +4,98 @@
 #include "BinaryTree.h"
 #include <iostream>
 #include <cstring>
+#include <sstream>
 #include "File_manipulation/dic.h"
 #define tab_size 11
+using namespace std;
  char *arr[tab_size] = {"cas","cassette", "ce", "ces","ci","de","des", "don","fas","font","kas" };
 void get_word_from_user(int size,Node* root,char* guessed_word  );
+void traverseNodes(stringstream& ss, string padding, string pointer, Node* node, bool hasRightSibling) {
+    if (node != nullptr) {
+        ss << "\n" << padding << pointer << node->data;
 
+        string paddingBuilder = padding;
+        if (hasRightSibling) {
+            paddingBuilder += "│  ";
+        } else {
+            paddingBuilder += "   ";
+        }
+
+        string paddingForBoth = paddingBuilder;
+        string pointerRight = "└──";
+        string pointerLeft = (node->right != nullptr) ? "├──" : "└──";
+
+        traverseNodes(ss, paddingForBoth, pointerLeft, node->left, node->right != nullptr);
+        traverseNodes(ss, paddingForBoth, pointerRight, node->right, false);
+    }
+}
+
+// Function to print the binary tree
+void print(Node* root) {
+    stringstream ss;
+    traverseNodes(ss, "", "", root, false );
+    cout << ss.str();
+}
+
+
+Node* remove_word(Node* root , char* word,int len )
+{
+    BinaryTree t; 
+ if ( root == NULL) 
+    return root; 
+ 
+ Node* tmp= root ; 
+ Node* test; 
+ for ( int i = 0 ; i< len ; ++i )
+ {
+      
+     tmp = t.Search(tmp,word[i]); 
+	 printf ("%d , %c \n",i,tmp->data);  
+	tmp = tmp->left; 
+	 
+	 //printf ("iil , %c \n",tmp->data);  
+	//printf ("tmp- %c \n" , tmp->parent->data); 
+	if ( tmp->data == '\0' && i == len-1 ) 
+	{
+	printf ("tmp- %c \n" , tmp->parent->data); 
+		while ( tmp->parent != NULL )
+		{
+			if ( tmp->parent->data != '\0' ) 
+			{
+			printf ("d %c \n", tmp->data); 
+			if ( tmp->right != NULL) 
+			{
+				if ( tmp->data== '\0') 
+				{
+					printf("removing /0 \n");  
+					test= tmp; 
+					tmp->parent->left=tmp->right;	
+					tmp = tmp->parent; 
+					printf("aa %c \n", tmp->left->data);  
+					free(test); 
+					test=NULL;
+				}
+				else 
+					tmp = tmp->parent; 
+			}else 
+			{
+				printf ("removing %c \n", tmp->data);
+				test= tmp ; 
+                tmp = tmp->parent; 
+                free(test); 
+                test=NULL; 
+				tmp->right = NULL; 
+			}
+			}else {
+				printf ("removing %c \n", tmp->data);
+				test= tmp ; 
+                tmp = tmp->parent; 
+                free(test); 
+                test=NULL; 
+				tmp->right = NULL; 
+				return root; 	}}	 }}
+return root; 
+}
 int check_user_input(Node* root,char* guessed_word,char user_in, int len, int *arr)
 {
     BinaryTree t;
@@ -73,12 +160,20 @@ int main() {
 	{
     tree.root = tree.insert_word(tree.root, arr[i], j);
 	}  
-    tree.root =  tree.insert_word(tree.root, "aaa", 0);
-    tree.Inorder(tree.root);
+   // tree.Inorder(tree.root);
+       print(tree.root);
+
+	printf("\n");
+    //tree.Find_Word(tree.root, arr[5],strlen("de"));	
+   tree.root =  remove_word(tree.root, "cassette",strlen("cassette"));  
+
     printf("\n");
-	printf ("%c \n" , tree.root->data); 
-	
-/*
+	Node* test = tree.root->right->left->left;
+	printf ("%c %c  \n", test->data ,  test->parent->data); 
+    printf("\n"); 
+    print(tree.root);
+	printf("\n");
+	/*
 	tree.root = tree.Find_Word(tree.root, arr[0], strlen(arr[0]));
 	printf("-------\n");
     

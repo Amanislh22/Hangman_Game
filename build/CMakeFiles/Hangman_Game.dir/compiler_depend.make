@@ -550,6 +550,8 @@ CMakeFiles/Hangman_Game.dir/Hangman.cpp.o: ../Hangman.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
   ../File_manipulation/dic.h
 
 CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
@@ -558,6 +560,8 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
 
 
 ../Node.cpp:
+
+/usr/include/c++/11/sstream:
 
 /usr/include/c++/11/bits/fstream.tcc:
 
@@ -902,6 +906,8 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/c++/11/bits/sstream.tcc:
 
 /usr/include/strings.h:
 
