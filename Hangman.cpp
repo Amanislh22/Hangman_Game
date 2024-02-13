@@ -12,26 +12,7 @@ using namespace std;
  char *arr[tab_size] = {"cas","cassette", "ce", "ces","ci","de","des", "don","fas","font","kas" };
 
 void get_word_from_user(int size,Node* root,char* guessed_word  );
-Node*  get_allWords_from_tree(Node* root, list<string>& l, string& str) 
-{
- if ( root == NULL) 
-     return root; 
- if ( root->data == '\0')
-	{
-		cout<<str<<endl;
-		l.push_back(str); 
-		if ( root->right != NULL) 
-			str.pop_back();
-		else 
-			str.clear();
-		return root; 
-	}
- str.push_back((char) root->data); 
-root->left = get_allWords_from_tree(root->left, l,str);
 
-root->right = get_allWords_from_tree(root->right, l,str);
- return  root; 
-}
 void afficherMots(string s,list<string>& l,  Node*  a)
 {
     if (a != NULL)
@@ -230,15 +211,7 @@ int main() {
 	printf("\n");
 	Node* sub = tree.get_sbtree_by_num(tree.root,0);
 	list<string> l ; 
-	string str =""; 
-	get_allWords_from_tree(sub, l,str); 
-	for ( string str : l )
-	{
-		cout <<str<<endl; 
-	}
-		printf("-------\n");
-		string s="" ; 
-		l.clear(); 
+    string s ;
 	afficherMots(s,l, tree.root);
 	cout<<tree.root->data<<endl;
 	cout<<"---------------------\n"; 
