@@ -46,6 +46,7 @@ Node* remove_word(Node* root , char* word,int len )
  
  Node* tmp= root ; 
  Node* test; 
+ int j =0; 
  for ( int i = 0 ; i< len ; ++i )
  {
       
@@ -58,7 +59,7 @@ Node* remove_word(Node* root , char* word,int len )
 	if ( tmp->data == '\0' && i == len-1 ) 
 	{
 	printf ("tmp- %c \n" , tmp->parent->data); 
-		while ( tmp->parent != NULL )
+		while ( tmp->parent != NULL && j <= len -1  )
 		{
 			if ( tmp->parent->data != '\0' ) 
 			{
@@ -70,18 +71,22 @@ Node* remove_word(Node* root , char* word,int len )
 					printf("removing /0 \n");  
 					test= tmp; 
 					tmp->parent->left=tmp->right;	
+					j++; 
 					tmp = tmp->parent; 
 					printf("aa %c \n", tmp->left->data);  
 					free(test); 
 					test=NULL;
 				}
-				else 
+				else
+				{
 					tmp = tmp->parent; 
+				j++;} 
 			}else 
 			{
 				printf ("removing %c \n", tmp->data);
 				test= tmp ; 
                 tmp = tmp->parent; 
+				j++; 
                 free(test); 
                 test=NULL; 
 				tmp->right = NULL; 
@@ -90,6 +95,7 @@ Node* remove_word(Node* root , char* word,int len )
 				printf ("removing %c \n", tmp->data);
 				test= tmp ; 
                 tmp = tmp->parent; 
+				j++;
                 free(test); 
                 test=NULL; 
 				tmp->right = NULL; 
@@ -164,13 +170,14 @@ int main() {
        print(tree.root);
 
 	printf("\n");
-    //tree.Find_Word(tree.root, arr[5],strlen("de"));	
-   tree.root =  remove_word(tree.root, "cassette",strlen("cassette"));  
+   tree.Find_Word(tree.root, arr[5],strlen("de"));	
+   tree.root =  remove_word(tree.root, "cas",strlen("cas"));  
+
+   //tree.root =  remove_word(tree.root, arr[4],strlen(arr[4]));  
+    //  tree.root =  remove_word(tree.root, arr[3],strlen(arr[3]));  
+   //tree.root =  remove_word(tree.root, arr[2],strlen(arr[2]));  
 
     printf("\n");
-	Node* test = tree.root->right->left->left;
-	printf ("%c %c  \n", test->data ,  test->parent->data); 
-    printf("\n"); 
     print(tree.root);
 	printf("\n");
 	/*
