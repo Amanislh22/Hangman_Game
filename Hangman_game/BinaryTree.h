@@ -4,6 +4,11 @@
 
 #include "Node.h"
 #include<QString>
+#include <QTextStream>
+#include <QTextBrowser>
+#include <QStringBuilder>
+#include <sstream>
+#include <iostream>
 class BinaryTree {
 public:
     Node *root;
@@ -33,8 +38,10 @@ public:
     int get_number_subtree(Node *root);
     Node *get_subtree_by_char(Node *root, QChar c);
     int check_user_input(Node* root,QString guessed_word,QChar user_in, int len, int *arr);
+    void traverseNodes(QTextStream& ts, QString padding, QString pointer, Node* node, bool hasRightSibling) ;    void Clear_tree(Node *root);
+    void printTree(Node* root, QString& treeRepresentation) ;
 
-    void Clear_tree(Node *root);
+
 };
 
 #endif //HANGMAN_GAME_BINARYTREE_H

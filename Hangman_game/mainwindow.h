@@ -15,6 +15,7 @@
 #include "perdu.h"
 #include "api_request.h"
 #include "dic.h"
+#include "game_settings.h"
 
 //#include "File_manipulation/dic.h"
 QT_BEGIN_NAMESPACE
@@ -44,6 +45,10 @@ private slots:
 
     void on_hint_btn_clicked();
 
+    void on_game_settings_clicked();
+
+    void on_reset_btn_clicked();
+
 public slots:
     void RecieveKyeboradInput(QString& message );
     void set_playing_state(int state);
@@ -61,10 +66,9 @@ public:
     void set_num_trials_label(int num);
     void show_hearst(QPixmap* pic , int num );
     void reset_game();
+    void init_game(int state);
     void calculate_penalty();
-    void file_stuff();
-    void set_word_to_guess(int mode);
-    void load_tree();
+
 //    void show_hearts()
 
 
@@ -73,27 +77,33 @@ private:
     play_music* music_wid;
     Key_board* keyboard_wid;
     QTableWidget *tableWidget;
+    game_settings *game_set_wid;
     Set_images set_img;
     Won* win_notif;
     Api_request api ;
     Dictionary dict;
+    perdu* lost_notif;
+//    BinaryTree tree;
+
+
+
+
     QString path_res="/home/moktar/Hangman_Game/Hangman_game/result.txt";
     QString path_dictionary="/home/moktar/Hangman_Game/Hangman_game/dic.txt";
-
-
-
-
     int max_hint_words=3;
-    perdu* lost_notif;
-    BinaryTree tree;
-    const int  tab_size=11;
+
+//    const int  tab_size=11;
+
     int num_error_trials=9;
     int corret_answ=0;
     int score=0;
     int penalty=5;
     QString dict_lang="fr";// "en"
-    QVector<QString> arr = {"cas", "cassette", "ce", "ces", "ci", "de", "des", "don", "fas", "font", "kas"};
-    QString word_to_guess="cassette";
+
+//    QVector<QString> arr = {"cas", "cassette", "ce", "ces", "ci", "de", "des", "don", "fas", "font", "kas"};
+
+    QString word_to_guess="";
+    int playing_state = waiting;
 
     QVector<QTableWidgetItem*> itemVector;
 

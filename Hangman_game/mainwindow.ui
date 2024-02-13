@@ -924,7 +924,7 @@
                    </layout>
                   </widget>
                  </item>
-                 <item>
+                 <item alignment="Qt::AlignHCenter">
                   <widget class="QFrame" name="frame_19">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
@@ -932,7 +932,27 @@
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_16"/>
+                   <layout class="QVBoxLayout" name="verticalLayout_16">
+                    <item>
+                     <widget class="QPushButton" name="reset_btn">
+                      <property name="minimumSize">
+                       <size>
+                        <width>200</width>
+                        <height>60</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>200</width>
+                        <height>60</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Rest game</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                 </layout>
@@ -1061,12 +1081,23 @@
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
                  <item>
                   <widget class="QStackedWidget" name="stackedWidget_2">
-                   <widget class="QWidget" name="Game_settings"/>
-                   <widget class="QWidget" name="Volume_settings">
-                    <layout class="QHBoxLayout" name="horizontalLayout_6"/>
-                   </widget>
+                   <property name="currentIndex">
+                    <number>-1</number>
+                   </property>
                   </widget>
                  </item>
                 </layout>

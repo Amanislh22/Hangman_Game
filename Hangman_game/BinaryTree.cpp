@@ -63,7 +63,7 @@ Node *BinaryTree::insert_word(Node* root, QString& w)
             root = push_left(root, w[i]);
         }
         w.clear();
-        root = push_left(root, '0');
+        root = push_left(root, '\0');
     }
     else {
         if (root->right == nullptr) {
@@ -155,7 +155,7 @@ Node *BinaryTree::Find_Word(Node *root, QString& word, int size)
         qDebug()<<"Found "<< tmp->data;
 
         tmp = tmp->left;
-        if (tmp->data == '0' && i == size)
+        if (tmp->data == '\0' && i == size)
         {
             qDebug()<<"word foun"<<  word;
             return root;
@@ -215,6 +215,27 @@ int BinaryTree::check_user_input(Node *root, QString guessed_word, QChar user_in
     return j ;
 }
 
+void BinaryTree::traverseNodes(QTextStream &ts, QString padding, QString pointer, Node *node, bool hasRightSibling)
+{
+    if (node != nullptr) {
+        ts << "\n" << padding << pointer << node->data;
+
+        QString paddingBuilder = padding;
+        if (hasRightSibling) {
+            paddingBuilder += "│  ";
+        } else {
+            paddingBuilder += "   ";
+        }
+
+        QString paddingForBoth = paddingBuilder;
+        QString pointerRight = "└──";
+        QString pointerLeft = (node->right != nullptr) ? "├──" : "└──";
+
+        traverseNodes(ts, paddingForBoth, pointerLeft, node->left, node->right != nullptr);
+        traverseNodes(ts, paddingForBoth, pointerRight, node->right, false);
+    }
+}
+
 void BinaryTree::Clear_tree(Node *root)
 {
     while(root != NULL){
@@ -224,6 +245,16 @@ void BinaryTree::Clear_tree(Node *root)
         root= NULL;
     }
 
+}
+
+void BinaryTree::printTree(Node *root, QString& treeRepresentation)
+{
+
+    // Use traverseNodes to generate the tree representation
+    QTextStream ts(&treeRepresentation);
+    traverseNodes(ts, "", "", root, false);
+
+    // Append the tree representation to the QTextBrowser
 }
 Node *BinaryTree::get_sbtree_by_num(Node *root, int n)
 {

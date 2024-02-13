@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>notification</class>
- <widget class="QDialog" name="notification">
+ <class>Won</class>
+ <widget class="QDialog" name="Won">
   <property name="geometry">
    <rect>
     <x>0</x>

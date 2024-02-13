@@ -13,19 +13,21 @@ void Dictionary::set_dic_path(QString path)
 }
 void Dictionary::set_res_path(QString path)
 {
-    path_res= path;
+    path_res= "/home/moktar/Hangman_Game/Hangman_game/result.txt";
 }
 void Dictionary::sortFile( ) {
 
     char command[256];
 
     // Convert QString to const char* for use in the sort command
-    const char* out = qPrintable(path_res);
+    //const char* out = qPrintable(path_res);
     const char* in = qPrintable(path_dic);
     qDebug()<< "n" <<path_dic<< "b"<<path_res;
+    const char* out = "/home/moktar/Hangman_Game/Hangman_game/result.txt";
+//    const char* in = "/home/moktar/Hangman_Game/Hangman_game/dic.txt";
 
     qDebug()<<out <<in;
-    snprintf(command, sizeof(command), "sort -o %s %s", out, in);
+    snprintf(command, sizeof(command), "truncate --size 0 result.txt && sort  %s | uniq >> %s", in, out);
 
     // Use the system function to execute the sort command
     int result = system(command);
@@ -51,8 +53,9 @@ int  Dictionary::get_number_lines(){
     QTextStream in(&file);
 
     while (!in.atEnd()) {
-        in.readLine();
-        num_lines ++;
+        QString l= in.readLine();
+        if ( !l.isEmpty())
+            num_lines ++;
     }
 //    qDebug()<< "max _lines "<<num_lines;    // Close the file
     file.close();
@@ -135,7 +138,8 @@ void Dictionary::readFile(QStringList& list) {
     // Read and output the file content line by line
     while (!in.atEnd()) {
         QString line = in.readLine();
-        list.append(line);
+        if ( !line.isEmpty())
+            list.append(line);
 //        qDebug() << line;
     }
 
@@ -146,7 +150,7 @@ void Dictionary::readFile(QStringList& list) {
 void Dictionary::writeFile(QStringList &lines)
 {
     // Create a QFile object
-    QFile file(path_res);
+    QFile file(path_dic);
 
     // Open the file in write-only mode
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
@@ -164,4 +168,35 @@ void Dictionary::writeFile(QStringList &lines)
     }
     file.close();
 
+}
+
+void Dictionary::deleteWordFromFile( QString& wordToDelete) {
+    // Open the input file
+    QFile inFile(path_dic);
+    if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Error opening the file:" << inFile.errorString();
+        return;
+    }
+
+    // Read the input file into a QTextStream
+    QTextStream inStream(&inFile);
+    QString buffer;
+    while (!inStream.atEnd()) {
+        QString line = inStream.readLine();
+        // Remove occurrences of the word from the line
+        line.replace(wordToDelete, "");
+        buffer += line + "\n";
+    }
+    inFile.close();
+
+    // Open the output file
+    if (!inFile.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+        qDebug() << "Error opening the file:" << inFile.errorString();
+        return;
+    }
+
+    // Write the modified text back to the file
+    QTextStream outStream(&inFile);
+    outStream << buffer;
+    inFile.close();
 }

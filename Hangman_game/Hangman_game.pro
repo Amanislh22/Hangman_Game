@@ -12,12 +12,14 @@ SOURCES += \
     BinaryTree.cpp \
     Node.cpp \
     api_request.cpp \
+    game_settings.cpp \
     key_board.cpp \
     main.cpp \
     mainwindow.cpp \
     perdu.cpp \
     play.cpp \
     play_music.cpp \
+    reset_notification.cpp \
     set_images.cpp \
     single_player.cpp \
     dic.cpp \
@@ -28,21 +30,25 @@ HEADERS += \
     BinaryTree.h \
     Node.h \
     api_request.h \
+    game_settings.h \
     key_board.h \
     mainwindow.h \
     perdu.h \
     play.h \
     play_music.h \
+    reset_notification.h \
     set_images.h \
     single_player.h \
     state.h \
     won.h
 
 FORMS += \
+    game_settings.ui \
     key_board.ui \
     mainwindow.ui \
     perdu.ui \
     play_music.ui \
+    reset_notification.ui \
     single_player.ui \
     won.ui
 

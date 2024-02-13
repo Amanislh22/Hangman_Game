@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     music_wid = new play_music(this);
     keyboard_wid = new Key_board(this);
+    game_set_wid = new game_settings(this);
+
     win_notif= new Won(this);
     lost_notif= new perdu(this);
     QObject::connect(keyboard_wid, &Key_board::sendKeyboardInput, this, &MainWindow::RecieveKyeboradInput);
@@ -26,42 +28,82 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(win_notif, &Won::send_action, this, &MainWindow::set_playing_state);
     ui->volume_label_main->setText(QString("Volume: %1").arg(music_wid->get_volume_level()));
     ui->stackedWidget_2->addWidget(music_wid);
+    ui->stackedWidget_2->addWidget(game_set_wid);
+
     ui->stackedWidget->setCurrentIndex(0);
-//    ui->wid
+
+    //  align the keyboard widget
     ui->verticalLayout_14->setAlignment(Qt::AlignCenter);
     ui->verticalLayout_14->addWidget(keyboard_wid);
 
 
-    // set hangman images
-//    QPixmap pixmap(":/new/images_hangman/0.jpg");
+//    init_game(Home);
+
+
+}
+void MainWindow::init_game(int game_sate)
+{
+    // show hanged images
     show_image(set_img.set_hangman_image(-1));
+    // show hearts
     show_hearst(set_img.set_heart_emoji(true),-1);
 
-    dict.set_res_path(path_res) ;
-    dict.set_dic_path(path_dictionary) ;
+    // set paths to dictionary and the result of sorted file
+//    dict.set_res_path(path_res) ;
+//    dict.set_dic_path(path_dictionary) ;
+    // clear tree
 
-    load_tree();
-    set_word_to_guess(single_player_mode);
-    qDebug()<<word_to_guess;
-    create_table(word_to_guess.length());
-/*
-    for (int i = 0; i<tab_size;i++)
-    {
-        tree.root = tree.insert_word(tree.root, arr[i]);
-    }
+    game_set_wid->clear_tree();
+    // init the binary tree
+    game_set_wid->init_file_management();
+    // load tree
+    game_set_wid->load_tree();
 
-//    tree.Inorder(tree.root);
-*/
-    tree.Find_Word(tree.root,word_to_guess,word_to_guess.length());
-// tree.Inorder(tree.root);
+    // set the word to guess
+    word_to_guess=game_set_wid->set_word_to_guess(single_player_mode);
+
+    // set the correct answer
     corret_answ=word_to_guess.length();
-    tree.Clear_tree(tree.root);
-	QString s= "sound" ; 
-    tree.Find_Word(tree.root,s ,s.length());
-    tree = BinaryTree() ; 
-	load_tree(); 
 
-    tree.Find_Word(tree.root,s ,s.length());
+    // set num of errors
+    num_error_trials=9;
+
+    // set num of trails label
+
+    set_num_trials_label(num_error_trials);
+
+
+    // chekc if woord exits
+    game_set_wid->Find_word(word_to_guess);
+
+    qDebug()<<word_to_guess;
+
+    // clear items table
+    itemVector.clear();
+    // clear table
+    clear_table_frame();
+    // creta the table
+    create_table(word_to_guess.length());
+
+    // enable the game stiiings widget
+    game_set_wid->setEnabled(true );
+
+    // enable keyboard
+    keyboard_wid->setEnabled(true);
+    keyboard_wid->enable_keyboard(true);
+
+    // set hint text
+    ui->hint_text->clear();
+    ui->hint_text->setPlainText("Hint text");
+
+    // print the result of th tree
+    game_set_wid->disaply_tree();
+
+    if ( game_sate==Home)
+    // set current index to be home page
+    ui->stackedWidget->setCurrentIndex(0);// home
+    else if ( game_sate==replay)
+    ui->stackedWidget->setCurrentIndex(1);// play
 
 }
 
@@ -112,7 +154,8 @@ void MainWindow::create_table(int num_cols)
 
 }
 void MainWindow::clear_table_frame(){
-    ui->verticalLayout_15->removeWidget(tableWidget);
+    if ( ! ui->verticalLayout_15->isEmpty())
+         ui->verticalLayout_15->removeWidget(tableWidget);
 }
 
 void MainWindow::show_image(QPixmap* pic)
@@ -252,7 +295,15 @@ void MainWindow::on_exit_btn_clicked()
 
 void MainWindow::on_Home_page_btn_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    if ( playing_state==playing)
+    {
+//        reset_game(Home);
+        // do nothing
+    }
+    else {
+        ui->stackedWidget->setCurrentIndex(0);
+    }
+//
 }
 
 
@@ -283,7 +334,9 @@ qDebug()<< "ff"<<   checked ;
 
 void MainWindow::on_single_plyer_btn_clicked()
 {
-ui->stackedWidget->setCurrentIndex(1);// set game single player mode page
+playing_state=playing;
+init_game(replay);
+//ui->stackedWidget->setCurrentIndex(1);// set game single player mode page
 
 }
 
@@ -294,7 +347,7 @@ int arr[10];
 int len=0,index=0;
 QChar key_in= message[0];
 qDebug()<<key_in;
-len = tree.check_user_input(tree.root,word_to_guess,key_in,word_to_guess.length(),arr);
+len = game_set_wid->check_user_input(key_in,word_to_guess,arr);
 if (len >0)
 {
     for (int i = 0; i<len; i++ )
@@ -317,15 +370,14 @@ else{
 
 void MainWindow::set_playing_state(int state)
 {
-if (state==replay)
-{
-    reset_game();
+init_game(state);
+
+//if (state!=replay)
+//{
+//    ui->stackedWidget->setCurrentIndex(0);// home
+//}
 }
-else {
-    reset_game();
-    ui->stackedWidget->setCurrentIndex(0);// home
-}
-}
+
 void MainWindow::reset_game(){
 
 clear_table_frame();
@@ -333,22 +385,21 @@ show_image(set_img.set_hangman_image(-1));
 show_hearst(set_img.set_heart_emoji(true),-1);
 keyboard_wid->setEnabled(true);
 keyboard_wid->enable_keyboard(true);
+word_to_guess= "";
+
 corret_answ=word_to_guess.length();
 num_error_trials=9;
 itemVector.clear();
 set_num_trials_label(9);
-set_word_to_guess(single_player_mode);
-qDebug()<<word_to_guess;
-corret_answ=word_to_guess.length();
-create_table(word_to_guess.length());
-tree.Find_Word(tree.root,word_to_guess,word_to_guess.length());
+
+game_set_wid->setEnabled(true );
 
 ui->hint_text->clear();
 ui->hint_text->setPlainText("Hint text");
 
+ui->stackedWidget->setCurrentIndex(0);// home
 
 }
-
 void MainWindow::on_hint_btn_clicked()
 {
     QStringList words = api.request_api(word_to_guess, max_hint_words,dict_lang);
@@ -379,37 +430,34 @@ else {
 }
 set_score_label(score);
 }
-void MainWindow::set_word_to_guess(int mode )
+//void MainWindow::set_word_to_guess(int mode )
+//{
+
+
+//}
+//void MainWindow::load_tree()
+//{
+
+//}
+
+
+void MainWindow::on_game_settings_clicked()
 {
 
-dict.sortFile();
-word_to_guess= dict.get_word(0,false);
+ui->stackedWidget_2->setCurrentWidget(game_set_wid);
+if ( playing_state == playing)
+    {
+    game_set_wid->setDisabled(true);
+    }
+
+ui->stackedWidget_2->show();
+
 }
-void MainWindow::load_tree()
+
+
+void MainWindow::on_reset_btn_clicked()
 {
-QStringList list;
-dict.readFile(list);
-for ( int i=0; i<list.length();i++)
-    tree.root = tree.insert_word(tree.root,list[i]);
+reset_game();
+playing_state=waiting;
 }
-/*
-void MainWindow::file_stuff(){
-QStringList list;
-list.append("hello moktar 2 ");
 
-//    dict.writeFile(,list);
-list.clear();
-
-dict.readFile(":/new/dictionary/result.txt",list);
-
-qDebug()<<list;
-
-//    dict.sortFile(":/new/dictionary/result.txt",":/new/dictionary/dic.txt");
-//    list.clear();
-
-//    dict.readFile(":/new/dictionary/result.txt",list);
-
-//    qDebug()<<list;
-//    list.clear();
-}
-*/

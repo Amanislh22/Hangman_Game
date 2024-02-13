@@ -24,9 +24,10 @@ public:
     QString get_word(int l , bool state );
     void set_res_path(QString path);
     void set_dic_path(QString path);
+    void deleteWordFromFile( QString& wordToDelete);
 
 public:
-    QString path_res ;
+    QString path_res= "/home/moktar/Hangman_Game/Hangman_game/result.txt";
     QString path_dic;
     int num_lines =0;
     QList<int> prevwords;
