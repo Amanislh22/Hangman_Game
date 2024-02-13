@@ -5,11 +5,59 @@
 #include <iostream>
 #include <cstring>
 #include <sstream>
+#include <list>
 #include "File_manipulation/dic.h"
 #define tab_size 11
 using namespace std;
  char *arr[tab_size] = {"cas","cassette", "ce", "ces","ci","de","des", "don","fas","font","kas" };
+
 void get_word_from_user(int size,Node* root,char* guessed_word  );
+Node*  get_allWords_from_tree(Node* root, list<string>& l, string& str) 
+{
+ if ( root == NULL) 
+     return root; 
+ if ( root->data == '\0')
+	{
+		cout<<str<<endl;
+		l.push_back(str); 
+		if ( root->right != NULL) 
+			str.pop_back();
+		else 
+			str.clear();
+		return root; 
+	}
+ str.push_back((char) root->data); 
+root->left = get_allWords_from_tree(root->left, l,str);
+
+root->right = get_allWords_from_tree(root->right, l,str);
+ return  root; 
+}
+void afficherMots(string s,list<string>& l,  Node*  a)
+{
+    if (a != NULL)
+    {
+        if (a->data != '\0') 
+        {
+            if (a->left != NULL) //ajouter caractere a mot
+            {
+                string t = s + a->data ;
+                afficherMots(t,l, a->left);
+            }
+            if (a->right != NULL) //fait rien et descendre droite
+            {
+                afficherMots(s,l, a->right);
+            }
+        }
+        else
+        {   l.push_back(s);
+            cout<<s<<endl; // l'occurence du mot dans le dictionnaire
+            //if (a->left != NULL)
+              //  afficherMots(s,l, a->left);
+        }
+    }
+}
+
+
 void traverseNodes(stringstream& ss, string padding, string pointer, Node* node, bool hasRightSibling) {
     if (node != nullptr) {
         ss << "\n" << padding << pointer << node->data;
@@ -171,7 +219,7 @@ int main() {
 
 	printf("\n");
    tree.Find_Word(tree.root, arr[5],strlen("de"));	
-   tree.root =  remove_word(tree.root, "cas",strlen("cas"));  
+	//tree.root =  remove_word(tree.root, "cas",strlen("cas"));  
 
    //tree.root =  remove_word(tree.root, arr[4],strlen(arr[4]));  
     //  tree.root =  remove_word(tree.root, arr[3],strlen(arr[3]));  
@@ -180,6 +228,24 @@ int main() {
     printf("\n");
     print(tree.root);
 	printf("\n");
+	Node* sub = tree.get_sbtree_by_num(tree.root,0);
+	list<string> l ; 
+	string str =""; 
+	get_allWords_from_tree(sub, l,str); 
+	for ( string str : l )
+	{
+		cout <<str<<endl; 
+	}
+		printf("-------\n");
+		string s="" ; 
+		l.clear(); 
+	afficherMots(s,l, tree.root);
+	cout<<tree.root->data<<endl;
+	cout<<"---------------------\n"; 
+	for ( string str : l )
+	{
+		cout <<str<<endl;} 
+	
 	/*
 	tree.root = tree.Find_Word(tree.root, arr[0], strlen(arr[0]));
 	printf("-------\n");

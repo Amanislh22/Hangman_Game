@@ -552,6 +552,11 @@ CMakeFiles/Hangman_Game.dir/Hangman.cpp.o: ../Hangman.cpp \
   /usr/include/strings.h \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/list.tcc \
   ../File_manipulation/dic.h
 
 CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
@@ -560,6 +565,8 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
 
 
 ../Node.cpp:
+
+/usr/include/c++/11/bits/stl_list.h:
 
 /usr/include/c++/11/sstream:
 
@@ -582,6 +589,8 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
 /usr/include/c++/11/bits/basic_ios.tcc:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
+
+/usr/include/c++/11/bits/list.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
@@ -635,6 +644,8 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
+/usr/include/c++/11/ext/aligned_buffer.h:
+
 /usr/include/endian.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
@@ -686,6 +697,8 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
 ../Hangman.cpp:
 
 /usr/include/c++/11/bits/concept_check.h:
+
+/usr/include/c++/11/list:
 
 /usr/include/c++/11/ext/string_conversions.h:
 
@@ -898,6 +911,8 @@ CMakeFiles/Hangman_Game.dir/Node.cpp.o: ../Node.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/c++/11/bits/allocated_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
