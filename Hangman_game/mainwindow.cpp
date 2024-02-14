@@ -26,6 +26,9 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(keyboard_wid, &Key_board::sendKeyboardInput, this, &MainWindow::RecieveKyeboradInput);
     QObject::connect(lost_notif, &perdu::send_action, this, &MainWindow::set_playing_state);
     QObject::connect(win_notif, &Won::send_action, this, &MainWindow::set_playing_state);
+    QObject::connect(game_set_wid, &game_settings::update_dict_language, this, &MainWindow::update_dict_lang);
+
+
     ui->volume_label_main->setText(QString("Volume: %1").arg(music_wid->get_volume_level()));
     ui->stackedWidget_2->addWidget(music_wid);
     ui->stackedWidget_2->addWidget(game_set_wid);
@@ -52,13 +55,14 @@ void MainWindow::init_game(int game_sate)
 //    dict.set_res_path(path_res) ;
 //    dict.set_dic_path(path_dictionary) ;
     // clear tree
-
+    game_set_wid->init_tree();
+    /*
     game_set_wid->clear_tree();
     // init the binary tree
     game_set_wid->init_file_management();
     // load tree
     game_set_wid->load_tree();
-
+*/
     // set the word to guess
     word_to_guess=game_set_wid->set_word_to_guess(single_player_mode);
 
@@ -378,6 +382,12 @@ init_game(state);
 //}
 }
 
+void MainWindow::update_dict_lang(const QString& update)
+{
+dict_lang= update;
+qDebug()<<dict_lang;
+}
+
 void MainWindow::reset_game(){
 
 clear_table_frame();
@@ -461,3 +471,16 @@ reset_game();
 playing_state=waiting;
 }
 
+
+void MainWindow::on_back_btn_clicked()
+{
+if ( playing_state == playing )
+{   // go back to play
+    ui->stackedWidget->setCurrentIndex(1);
+}
+else if (playing_state == waiting  )
+{
+    // Home
+ui->stackedWidget->setCurrentIndex(0);
+}
+}

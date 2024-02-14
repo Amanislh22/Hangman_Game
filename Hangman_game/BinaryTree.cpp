@@ -256,6 +256,31 @@ void BinaryTree::printTree(Node *root, QString& treeRepresentation)
 
     // Append the tree representation to the QTextBrowser
 }
+
+void BinaryTree::get_allWords(QString s, QStringList &list, Node *a)
+{
+    if (a != NULL)
+    {
+        if (a->data != '\0')
+        {
+            if (a->left != NULL) //ajouter caractere a mot
+            {
+                QString t = s + a->data ;
+                get_allWords(t,list, a->left);
+            }
+            if (a->right != NULL) //fait rien et descendre droite
+            {
+                get_allWords(s,list, a->right);
+            }
+        }
+        else
+        {   list.push_back(s);
+            qDebug()<<s ; // l'occurence du mot dans le dictionnaire
+            //if (a->left != NULL)
+            //  afficherMots(s,l, a->left);
+        }
+    }
+}
 Node *BinaryTree::get_sbtree_by_num(Node *root, int n)
 {
     Node *tmp = root;

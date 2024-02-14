@@ -33,6 +33,9 @@ private slots:
     void on_remove_word_tree_btn_clicked();
 
     void on_add_word_tree_btn_clicked();
+    void on_lang_comboBox_currentTextChanged(const  QString &arg1);
+signals:
+    void update_dict_language(const QString& arg1);
 public:
 
 
@@ -48,6 +51,8 @@ public:
     void init_file_management();
     int check_user_input(QChar key,QString  w,int* arr);
     void Find_word(QString  w);
+    void init_tree();
+    QString get_language();
 //    void reset_g
 //    void set_file_path(QString );
 private:
@@ -58,8 +63,7 @@ private:
     int num_lines;
     QString dict_path="/home/moktar/Hangman_Game/Hangman_game/dic.txt";
     void set_num_lines_label( );
-    void update_list_words_combox(int sate,QStringList&  list); // update the Qcombox of eitheir the file or tree
-
+    void update_list_words_combox(int sate,QStringList  list); // update the Qcombox of eitheir the file or tree
 };
 
 #endif // GAME_SETTINGS_H

@@ -1,4 +1,5 @@
-moktar
+alone
+
 amaze
 beauty
 big
@@ -93,7 +94,7 @@ wind
 wind
 windy
 
-alone
+
 amaze
 beauty
 big
@@ -156,7 +157,7 @@ waterfall
 wind
 windy
 
-alone
+
 amaze
 beauty
 big

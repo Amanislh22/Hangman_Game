@@ -40,7 +40,7 @@ public:
     int check_user_input(Node* root,QString guessed_word,QChar user_in, int len, int *arr);
     void traverseNodes(QTextStream& ts, QString padding, QString pointer, Node* node, bool hasRightSibling) ;    void Clear_tree(Node *root);
     void printTree(Node* root, QString& treeRepresentation) ;
-
+    void get_allWords(QString s, QStringList& list,Node* a);
 
 };
 

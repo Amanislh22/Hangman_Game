@@ -49,9 +49,12 @@ private slots:
 
     void on_reset_btn_clicked();
 
+    void on_back_btn_clicked();
+
 public slots:
     void RecieveKyeboradInput(QString& message );
     void set_playing_state(int state);
+    void update_dict_lang(const QString& update);
 public:
 //    void get_word_from_user(int size,Node* root,char* guessed_word  );
 //    int check_user_input(Node* root,char* guessed_word,char user_in, int len, int *arr) ;
@@ -68,6 +71,7 @@ public:
     void reset_game();
     void init_game(int state);
     void calculate_penalty();
+    void set_language() ;
 
 //    void show_hearts()
 
