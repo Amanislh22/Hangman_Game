@@ -14,9 +14,9 @@ void Dictionary::set_dic_path(QString path)
 }
 void Dictionary::set_res_path(QString path)
 {
-  //  path_res = QDir::currentPath();
+    path_res = QDir::currentPath();
     
-    path_res = "./result.txt";
+    path_res += "/result.txt";
     qDebug()<<path_res;
 }
 void Dictionary::sortFile( ) {
@@ -24,12 +24,12 @@ void Dictionary::sortFile( ) {
     char command[256];
 
     // Convert QString to const char* for use in the sort command
-    //const char* out = qPrintable(path_res);
+    const char* out = qPrintable(path_res);
     const char* in = qPrintable(path_dic);
     qDebug()<< "d: " <<path_dic<< "r: "<<path_res;
 //    const char* in = "/home/moktar/Hangman_Game/Hangman_game/dic.txt";
 
-    snprintf(command, sizeof(command), "truncate --size 0 ./result.txt && sort  %s | uniq >> ./result.txt",in);
+    snprintf(command, sizeof(command), "truncate --size 0 %s && sort  %s | uniq >> %s",out,in,out);
 
     // Use the system function to execute the sort command
     int result = system(command);
