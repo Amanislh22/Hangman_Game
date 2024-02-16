@@ -4,8 +4,9 @@
 #include <cstdlib>
 #include "dic.h"
 #include <QRandomGenerator>
+#include <QDir>
 Dictionary::Dictionary(){
-
+set_res_path("");
 }
 void Dictionary::set_dic_path(QString path)
 {
@@ -13,7 +14,10 @@ void Dictionary::set_dic_path(QString path)
 }
 void Dictionary::set_res_path(QString path)
 {
-    path_res= "/home/moktar/Hangman_Game/Hangman_game/result.txt";
+  //  path_res = QDir::currentPath();
+    
+    path_res = "./result.txt";
+    qDebug()<<path_res;
 }
 void Dictionary::sortFile( ) {
 
@@ -22,12 +26,10 @@ void Dictionary::sortFile( ) {
     // Convert QString to const char* for use in the sort command
     //const char* out = qPrintable(path_res);
     const char* in = qPrintable(path_dic);
-    qDebug()<< "n" <<path_dic<< "b"<<path_res;
-    const char* out = "/home/moktar/Hangman_Game/Hangman_game/result.txt";
+    qDebug()<< "d: " <<path_dic<< "r: "<<path_res;
 //    const char* in = "/home/moktar/Hangman_Game/Hangman_game/dic.txt";
 
-    qDebug()<<out <<in;
-    snprintf(command, sizeof(command), "truncate --size 0 result.txt && sort  %s | uniq >> %s", in, out);
+    snprintf(command, sizeof(command), "truncate --size 0 ./result.txt && sort  %s | uniq >> ./result.txt",in);
 
     // Use the system function to execute the sort command
     int result = system(command);
